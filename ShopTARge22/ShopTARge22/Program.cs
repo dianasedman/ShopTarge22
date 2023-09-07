@@ -1,7 +1,14 @@
+using ShopTARge22.Data;
+
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//builder.Services.AddDbContext<ShopTARge22Context>(options =>
+//    options.UseSqlServer)
 
 var app = builder.Build();
 
