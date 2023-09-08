@@ -2,10 +2,11 @@
 using ShopTARge22.Core.Domain;
 using ShopTARge22.Core.Dto;
 using ShopTARge22.Data;
+using ShopTARge22.Core.ServiceInterface;
 
 namespace ShopTARge22.ApplicationServices.Services
 {
-    public class SpaceshipsServices
+    public class SpaceshipsServices : ISpaceshipsServices
     {
         private readonly ShopTARge22Context _context;
         public SpaceshipsServices (ShopTARge22Context context) { _context = context; }

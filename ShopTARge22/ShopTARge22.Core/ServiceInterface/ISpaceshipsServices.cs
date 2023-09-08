@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ShopTARge22.Core.ServiceInterface
 {
-    internal interface ISpaceshipsServices
+    public interface ISpaceshipsServices
     {
     }
 }
