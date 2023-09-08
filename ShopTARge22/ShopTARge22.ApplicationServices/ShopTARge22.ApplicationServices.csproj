@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ShopTARge22.Core\ShopTARge22.Core.csproj" />
+    <ProjectReference Include="..\ShopTARge22.Data\ShopTARge22.Data.csproj" />
+    <ProjectReference Include="..\ShopTARge22\ShopTARge22.csproj" />
+  </ItemGroup>
+
+</Project>
