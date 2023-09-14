@@ -1,6 +1,6 @@
-﻿namespace ShopTARge22.Core.Domain
+﻿namespace ShopTARge22.Models.Spaceships
 {
-    public class Spaceship
+    public class SpaceshipDeleteViewModel
     {
         public Guid? Id { get; set; }
         public string Name { get; set; }
@@ -11,7 +11,7 @@
         public int Crew { get; set; }
         public int EnginePower { get; set; }
 
-        //only in database
+
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
     }

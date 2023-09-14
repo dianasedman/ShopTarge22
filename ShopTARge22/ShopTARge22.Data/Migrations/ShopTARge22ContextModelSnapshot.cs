@@ -28,7 +28,7 @@ namespace ShopTARge22.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("BuildDate")
+                    b.Property<DateTime>("BuiltDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CargoWeight")

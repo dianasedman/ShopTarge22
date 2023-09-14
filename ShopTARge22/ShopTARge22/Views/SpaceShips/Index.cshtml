@@ -1,19 +1,17 @@
-﻿@model IEnumerable<ShopTARge22.Models.SpaceShips.SpaceshipsIndexViewModel>
+﻿@model IEnumerable<ShopTARge22.Models.Spaceships.SpaceshipsIndexViewModel>
 
 @{
     int rowNumber = 1;
 }
 
 <div>
-    <a asp-action="Create" asp-controller="Spaceships" type="submit" class="btn-primary">Create</a>
+    <a asp-action="create" asp-controller="Spaceships" type="submit" class="btn btn-primary">Create</a>
 </div>
+
 
 <div class="h1">
     Products
 </div>
-
-
-
 <form method="post">
     <table class="table table-hover">
         <thead>
@@ -21,10 +19,10 @@
                 <th scope="col">Nr</th>
                 <th scope="col">Name</th>
                 <th scope="col">Type</th>
-                <th scope="col">Build Date</th>
+                <th scope="col">Built date</th>
                 <th scope="col">Passengers</th>
             </tr>
-        </thead>    
+        </thead>
         <tbody>
             @foreach (var spaceships in Model)
             {
@@ -32,12 +30,17 @@
                     <td>@rowNumber</td>
                     <td>@spaceships.Name</td>
                     <td>@spaceships.Type</td>
-                    <td>@spaceships.BuildDate</td>
+                    <td>@spaceships.BuiltDate</td>
                     <td>@spaceships.Passengers</td>
+                    <td>
+                        <a asp-action="details" asp-controller="spaceships" asp-route-id="@spaceships.Id" class="btn btn-info">Details</a>
+                        <a asp-action="delete" asp-controller="spaceships" asp-route-id="@spaceships.Id" class="btn btn-danger">Delete</a>
+
+                    </td>
                 </tr>
+
                 rowNumber += 1;
             }
         </tbody>
     </table>
-
 </form>

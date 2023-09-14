@@ -12,7 +12,7 @@ using ShopTARge22.Data;
 namespace ShopTARge22.Data.Migrations
 {
     [DbContext(typeof(ShopTARge22Context))]
-    [Migration("20230908062744_init")]
+    [Migration("20230914081301_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,7 +30,7 @@ namespace ShopTARge22.Data.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<DateTime>("BuildDate")
+                    b.Property<DateTime>("BuiltDate")
                         .HasColumnType("datetime2");
 
                     b.Property<int>("CargoWeight")
