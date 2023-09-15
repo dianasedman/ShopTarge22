@@ -119,6 +119,18 @@ namespace ShopTARge22.Controllers
 
             return View(vm);
         }
+
+        [HttpPost]
+        public async Task<IActionResult>DeleteConfirmation(Guid id)
+        {
+            var spaceshipId = await _spaceshipServices.Delete(id);
+            if (spaceshipId == null)
+            {
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction(nameof(Index)); // voib panna "null" testimise jaoks, et erorrit ei tuleks
+        }
         
     }
 }
