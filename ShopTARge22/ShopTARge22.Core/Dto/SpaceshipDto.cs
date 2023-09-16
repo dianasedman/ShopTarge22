@@ -1,5 +1,8 @@
 ﻿
 
+using Microsoft.AspNetCore.Http;
+using ShopTARge22.Core.Domain;
+
 namespace ShopTARge22.Core.Dto
 {
     public class SpaceshipDto
@@ -12,7 +15,9 @@ namespace ShopTARge22.Core.Dto
         public int CargoWeight { get; set; }
         public int Crew { get; set; }
         public int EnginePower { get; set; }
-
+        public List<IFormFile> Files { get; set; }
+        public IEnumerable<FileToApiDto> FileToApiDtos { get; set; }
+            = new List<FileToApiDto>();
 
         public DateTime CreatedAt { get; set; }
         public DateTime ModifiedAt { get; set; }
