@@ -21,4 +21,8 @@
     <ProjectReference Include="..\ShopTARge22.Data\ShopTARge22.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="multipleFileUpload\" />
+    <Folder Include="Views\RealEstates\" />
+  </ItemGroup>
 </Project>

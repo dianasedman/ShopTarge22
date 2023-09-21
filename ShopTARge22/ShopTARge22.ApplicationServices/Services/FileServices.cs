@@ -27,9 +27,9 @@ namespace ShopTARge22.ApplicationServices.Services
         }
         public void FilesToApi(SpaceshipDto dto, Spaceship spaceship)
         {
-            if (dto.Files != null & dto.Files.Count > 0)
+            if (dto.Files != null && dto.Files.Count > 0)
             {
-                if (Directory.Exists(_webHost.ContentRootPath + "\\multipleFileUpload\\")) 
+                if (!Directory.Exists(_webHost.ContentRootPath + "\\multipleFileUpload\\")) 
                 {
                     Directory.CreateDirectory(_webHost.ContentRootPath + "\\multipleFileUpload\\");
                 }

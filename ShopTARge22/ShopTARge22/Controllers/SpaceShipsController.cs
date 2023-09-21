@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using ShopTARge22.Core.Domain;
 using ShopTARge22.Core.Dto;
 using ShopTARge22.Core.ServiceInterface;
@@ -65,7 +66,7 @@ namespace ShopTARge22.Controllers
                 FileToApiDtos = vm.Image
                     .Select(x => new FileToApiDto
                     {
-                        Id=x.Id,
+                        Id=x.ImageId,
                         ExistingFilePath = x.FilePath,
                         SpaceshipId = x.SpaceshipId,
                     }) .ToArray()
@@ -90,6 +91,15 @@ namespace ShopTARge22.Controllers
             {
                 return NotFound();
             }
+
+            var images = await _context.FileToApis
+                .Where(x => x.SpaceshipId == id)
+                .Select(y => new ImageViewModel
+                {
+                    FilePath = y.ExistingFilePath,
+                    ImageId = y.Id,
+            }).ToArrayAsync();
+
             var vm = new SpaceshipCreateUpdateViewModel();
             vm.Id = spaceship.Id;
             vm.Name = spaceship.Name;
@@ -101,6 +111,7 @@ namespace ShopTARge22.Controllers
             vm.EnginePower = spaceship.EnginePower;
             vm.CreatedAt = spaceship.CreatedAt;
             vm.ModifiedAt = spaceship.ModifiedAt;
+            vm.Image.AddRange(images);
 
             return View("CreateUpdate", vm);
         }
