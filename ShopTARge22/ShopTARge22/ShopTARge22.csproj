@@ -23,6 +23,5 @@
 
   <ItemGroup>
     <Folder Include="multipleFileUpload\" />
-    <Folder Include="Views\RealEstates\" />
   </ItemGroup>
 </Project>

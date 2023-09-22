@@ -1,6 +1,4 @@
-﻿
-
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using ShopTARge22.Core.Domain;
 
 namespace ShopTARge22.Core.Dto
