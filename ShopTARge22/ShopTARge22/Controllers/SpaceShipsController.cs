@@ -12,15 +12,18 @@ namespace ShopTARge22.Controllers
     {
         private readonly ShopTARge22Context _context;
         private readonly ISpaceshipsServices _spaceshipServices;
+        private readonly IFileServices _fileServices;
 
         public SpaceshipsController
             (
                 ShopTARge22Context context,
-                ISpaceshipsServices spaceshipsServices
+                ISpaceshipsServices spaceshipsServices,
+                IFileServices fileServices
             )
         {
             _context = context;
             _spaceshipServices = spaceshipsServices;
+            _fileServices = fileServices;
         }
 
 
@@ -129,6 +132,7 @@ namespace ShopTARge22.Controllers
                 CargoWeight = vm.CargoWeight,
                 Crew = vm.Crew,
                 EnginePower = vm.EnginePower,
+                Files = vm.Files,
                 CreatedAt = vm.CreatedAt,
                 ModifiedAt = vm.ModifiedAt,
                 FileToApiDtos = vm.Image
@@ -139,6 +143,7 @@ namespace ShopTARge22.Controllers
                     SpaceshipId = x.SpaceshipId
                 }).ToArray(),
             };
+
             var result = await _spaceshipServices.Update(dto);
             if (result == null)
             {
@@ -191,6 +196,14 @@ namespace ShopTARge22.Controllers
                 return NotFound();
             }
 
+            var images = await _context.FileToApis
+                .Where(x => x.SpaceshipId == id)
+                .Select(y => new ImageViewModel 
+                {
+                    FilePath = y.ExistingFilePath,
+                    ImageId = y.Id
+                }).ToArrayAsync();
+
             var vm = new SpaceshipDeleteViewModel();
             vm.Id = spaceship.Id;
             vm.Name = spaceship.Name;
@@ -202,6 +215,7 @@ namespace ShopTARge22.Controllers
             vm.EnginePower = spaceship.EnginePower;
             vm.CreatedAt = spaceship.CreatedAt;
             vm.ModifiedAt = spaceship.ModifiedAt;
+            vm.ImageViewModels.AddRange(images);
 
             return View(vm);
         }
@@ -216,6 +230,23 @@ namespace ShopTARge22.Controllers
             }
 
             return RedirectToAction(nameof(Index)); // voib panna "null" testimise jaoks, et erorrit ei tuleks
+        }
+
+        [HttpPost]
+        public async Task<IActionResult>RemoveImage(ImageViewModel vm)
+        {
+            var dto = new FileToApiDto()
+            {
+                Id = vm.ImageId
+            };
+
+            var image = await _fileServices.RemoveImageFromApi(dto);
+            if(image == null)
+            {
+                return RedirectToAction(nameof(Index));
+
+            }
+            return RedirectToAction(nameof(Index));
         }
         
     }

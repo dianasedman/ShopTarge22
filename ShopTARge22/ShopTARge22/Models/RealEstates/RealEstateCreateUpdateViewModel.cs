@@ -1,8 +1,7 @@
-﻿using ShopTARge22.Models.Spaceships;
-
-namespace ShopTARge22.Models.RealEstate
+﻿
+namespace ShopTARge22.Models.RealEstates
 {
-    public class RealEstateDetailsViewModel
+    public class RealEstateCreateUpdateViewModel
     {
         public Guid? Id { get; set; }
         public string Address { get; set; }
@@ -12,7 +11,14 @@ namespace ShopTARge22.Models.RealEstate
         public string BuildingType { get; set; }
         public DateTime BuiltInYear { get; set; }
 
+        public List<IFormFile> Files {  get; set; }
+        public List<RealEstateImageViewModel> Image {  get; set; } 
+            = new List<RealEstateImageViewModel> { };
+
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
 }
+
+
+

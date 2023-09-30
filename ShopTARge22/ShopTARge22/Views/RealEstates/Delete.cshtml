@@ -1,4 +1,4 @@
-﻿@model ShopTARge22.Models.RealEstate.RealEstateDeleteViewModel;
+﻿@model ShopTARge22.Models.RealEstates.RealEstateDeleteViewModel;
 
 <h1>Delete</h1>
 
@@ -46,6 +46,13 @@
             @Html.DisplayFor(model => model.UpdatedAt)
         </div>
     </dl>
+
+    <div>
+        @foreach (var images in Model.Image)
+        {
+            <partial name="_Images" model="images" />
+        }
+    </div>
 
     <form asp-action="DeleteConfirmation">
         <input type="hidden" asp-for="Id" />

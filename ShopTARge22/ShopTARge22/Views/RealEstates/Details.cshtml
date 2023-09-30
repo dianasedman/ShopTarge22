@@ -1,4 +1,4 @@
-﻿@model ShopTARge22.Models.RealEstate.RealEstateDetailsViewModel;
+﻿@model ShopTARge22.Models.RealEstates.RealEstateDetailsViewModel;
 
 <h1>Details</h1>
 
@@ -50,6 +50,11 @@
             <label asp-for="UpdatedAt" class="col-sm-2 col-form-label"></label>
             @Html.DisplayFor(model => model.UpdatedAt)
         </div>
+
+        @foreach (var images in Model.Image)
+        {
+            <partial name="_Images" model="images" />
+        }
 
     </dl>
     <a asp-action="Index" asp-controller="realestates" class="btn btn-danger">Back</a>

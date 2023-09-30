@@ -3,6 +3,7 @@ using ShopTARge22.Core.ServiceInterface;
 using ShopTARge22.Data;
 using ShopTARge22.Core.Dto;
 using ShopTARge22.Core.Domain;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ShopTARge22.ApplicationServices.Services
 {
@@ -10,12 +11,15 @@ namespace ShopTARge22.ApplicationServices.Services
 
     {
         private readonly ShopTARge22Context _context;
+        private IFileServices _fileServices;
         public RealEstateServices
             (
-                ShopTARge22Context context
+                ShopTARge22Context context,
+                IFileServices fileservices
             )
         {
             _context = context;
+            _fileServices = fileservices;
         }
 
         public async Task<RealEstate> Create(RealEstateDto dto)
@@ -31,6 +35,10 @@ namespace ShopTARge22.ApplicationServices.Services
             realEstate.BuiltInYear = dto.BuiltInYear;
             realEstate.CreatedAt = DateTime.Now;
             realEstate.UpdatedAt = DateTime.Now;
+
+            if ( dto.Files != null ) {
+                _fileServices.UploadFilesToDatabase(dto, realEstate);
+            };
 
             await _context.RealEstates.AddAsync(realEstate);
             await _context.SaveChangesAsync();
@@ -60,7 +68,13 @@ namespace ShopTARge22.ApplicationServices.Services
             realEstate.BuiltInYear = dto.BuiltInYear;
             realEstate.CreatedAt = dto.CreatedAt;
             realEstate.UpdatedAt = DateTime.Now;
-            
+            await _context.SaveChangesAsync();
+
+            if (dto.Files != null)
+            {
+                _fileServices.UploadFilesToDatabase(dto, realEstate);
+            };
+
 
             _context.RealEstates.Update(realEstate);
             await _context.SaveChangesAsync();

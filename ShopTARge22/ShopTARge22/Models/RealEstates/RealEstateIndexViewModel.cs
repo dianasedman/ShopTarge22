@@ -1,4 +1,4 @@
-﻿namespace ShopTARge22.Models.RealEstate
+﻿namespace ShopTARge22.Models.RealEstates
 {
     public class RealEstateIndexViewModel
     {

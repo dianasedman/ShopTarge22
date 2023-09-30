@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 using ShopTARge22.Data;
+using Microsoft.EntityFrameworkCore;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace ShopTARge22.ApplicationServices.Services
 {
@@ -24,6 +26,29 @@ namespace ShopTARge22.ApplicationServices.Services
         {
             _webHost = webhost;
             _context = context; 
+        }
+
+        public void UploadFilesToDatabase(RealEstateDto dto, RealEstate domain)
+        {
+            if (dto.Files != null && dto.Files.Count > 0)
+            {
+                foreach (var image in dto.Files)
+                {
+                    using (var target = new MemoryStream()) {
+                        FileToDatabase files = new FileToDatabase()
+                        {
+                            Id = Guid.NewGuid(),
+                            ImageTitle = image.FileName,
+                            RealEstateId = domain.Id,
+                        };
+
+                        image.CopyTo( target );
+                        files.ImageData = target.ToArray();
+
+                        _context.FileToDatabases.Add( files ); 
+                    }
+                }
+            }
         }
         public void FilesToApi(SpaceshipDto dto, Spaceship spaceship)
         {
@@ -55,5 +80,46 @@ namespace ShopTARge22.ApplicationServices.Services
                 }
             }
         }
+
+        public async Task<List<FileToApi>> RemoveImagesFromApi(FileToApiDto[] dtos)
+        {
+            foreach (var dto in dtos)
+            {
+                var imageId = await _context.FileToApis
+                    .FirstOrDefaultAsync(x => x.ExistingFilePath == dto.ExistingFilePath);
+                var filePath = _webHost.ContentRootPath + "\\multipleFileUpload\\" + imageId.ExistingFilePath;
+                if (File.Exists(filePath))
+                {
+                    File.Delete(filePath);
+                }
+
+                _context.FileToApis.Remove(imageId);
+                await _context.SaveChangesAsync();
+            }
+
+            return null;
+        }
+
+        public async Task<FileToApi> RemoveImageFromApi(FileToApiDto dto)
+        {
+            var ImageId = await _context.FileToApis
+                .FirstOrDefaultAsync(x => x.Id == dto.Id);
+            var filePath = _webHost.ContentRootPath + "\\multipleFileUpload\\" + ImageId.ExistingFilePath;
+
+            if (File.Exists(filePath))
+            {
+                File.Delete(filePath);
+            }
+            _context.FileToApis.Remove(ImageId);
+            await _context.SaveChangesAsync();
+
+            return null;
+
+        }
+
+
     }
+
 }
+
+

@@ -1,7 +1,8 @@
-﻿
-namespace ShopTARge22.Models.RealEstate
+﻿using ShopTARge22.Models.RealEstates;
+
+namespace ShopTARge22.Models.RealEstates
 {
-    public class RealEstateCreateUpdateViewModel
+    public class RealEstateDetailsViewModel
     {
         public Guid? Id { get; set; }
         public string Address { get; set; }
@@ -10,11 +11,10 @@ namespace ShopTARge22.Models.RealEstate
         public int Floor { get; set; }
         public string BuildingType { get; set; }
         public DateTime BuiltInYear { get; set; }
+        public List<RealEstateImageViewModel> Image {  get; set; } 
+            = new List<RealEstateImageViewModel>();
 
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
     }
 }
-
-
-
