@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using ShopTARge22.ApplicationServices.Services;
 using ShopTARge22.Core.Dto;
 using ShopTARge22.Core.ServiceInterface;
 using ShopTARge22.Data;
@@ -12,17 +13,23 @@ namespace ShopTARge22.Controllers
     {
         private readonly ShopTARge22Context _context;
         private readonly IRealEstatesServices _realEstatesServices;
+        private readonly IFileServices _fileServices;
 
 
         public RealEstatesController
             (
                 ShopTARge22Context context,
                 IRealEstatesServices realEstates
+,
+                IFileServices fileServices
+
+
 
             )
         {
             _context = context;
             _realEstatesServices = realEstates;
+            _fileServices = fileServices;
         }
         [HttpGet]
         public IActionResult Index()
@@ -228,6 +235,23 @@ namespace ShopTARge22.Controllers
             if (realestateId == null)
             {
                 return RedirectToAction(nameof(Index));
+            }
+            return RedirectToAction(nameof(Index));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> RemoveImage(RealEstateImageViewModel vm)
+        {
+            var dto = new FileToDatabaseDto()
+            {
+                Id = vm.ImageId
+            };
+
+            var image = await _fileServices.RemoveImageFromDatabase(dto);
+            if (image == null)
+            {
+                return RedirectToAction(nameof(Index));
+
             }
             return RedirectToAction(nameof(Index));
         }
