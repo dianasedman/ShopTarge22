@@ -12,6 +12,8 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISpaceshipsServices, SpaceshipsServices>();
 builder.Services.AddScoped<IFileServices, FileServices>();
 builder.Services.AddScoped<IRealEstatesServices, RealEstateServices>();
+builder.Services.AddScoped<IKindergartenServices, KindergartenServices>();
+
 
 builder.Services.AddDbContext<ShopTARge22Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

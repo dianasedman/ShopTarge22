@@ -1,10 +1,10 @@
-﻿namespace ShopTARge22.Models.KinderGartens
+﻿namespace ShopTARge22.Models.Kindergartens
 {
     public class KindergartenIndexViewModel
     {
-        public Guid Id { get; set; }
+        public Guid? Id { get; set; }
         public string GroupName { get; set; }
-        public string KinderGartenName { get; set; }
+        public string KindergartenName { get; set; }
         public string Teacher {  get; set; }
 
     }
