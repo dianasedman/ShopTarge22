@@ -22,6 +22,7 @@ namespace ShopTARge22.ApplicationServices.Services
             Kindergarten kindergarten = new Kindergarten();
             kindergarten.Id = Guid.NewGuid();
             kindergarten.GroupName = dto.GroupName;
+            kindergarten.ChildrenCount = dto.ChildrenCount;
             kindergarten.KindergartenName = dto.KindergartenName;
             kindergarten.Teacher = dto.Teacher;
             kindergarten.CreatedAt = dto.CreatedAt;

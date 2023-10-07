@@ -12,7 +12,7 @@ using ShopTARge22.Data;
 namespace ShopTARge22.Data.Migrations
 {
     [DbContext(typeof(ShopTARge22Context))]
-    [Migration("20231007122444_Kindergarten")]
+    [Migration("20231007124251_Kindergarten")]
     partial class Kindergarten
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
