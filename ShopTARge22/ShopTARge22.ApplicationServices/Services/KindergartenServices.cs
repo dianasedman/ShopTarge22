@@ -51,7 +51,7 @@ namespace ShopTARge22.ApplicationServices.Services
                 kindergarten.ChildrenCount = dto.ChildrenCount;
                 kindergarten.KindergartenName = dto.KindergartenName;
                 kindergarten.Teacher = dto.Teacher;
-                kindergarten.CreatedAt = DateTime.Now;
+                kindergarten.CreatedAt = dto.CreatedAt;
                 kindergarten.UpdatedAt= DateTime.Now;
 
                 _context.Kindergartens.Update(kindergarten);
