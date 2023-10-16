@@ -25,8 +25,8 @@ namespace ShopTARge22.ApplicationServices.Services
             kindergarten.ChildrenCount = dto.ChildrenCount;
             kindergarten.KindergartenName = dto.KindergartenName;
             kindergarten.Teacher = dto.Teacher;
-            kindergarten.CreatedAt = dto.CreatedAt;
-            kindergarten.UpdatedAt = dto.UpdatedAt;
+            kindergarten.CreatedAt = DateTime.Now;
+            kindergarten.UpdatedAt = DateTime.Now;
 
             await _context.Kindergartens.AddAsync(kindergarten);
             await _context.SaveChangesAsync();
@@ -51,8 +51,8 @@ namespace ShopTARge22.ApplicationServices.Services
                 kindergarten.ChildrenCount = dto.ChildrenCount;
                 kindergarten.KindergartenName = dto.KindergartenName;
                 kindergarten.Teacher = dto.Teacher;
-                kindergarten.CreatedAt = dto.CreatedAt;
-                kindergarten.UpdatedAt= dto.UpdatedAt;
+                kindergarten.CreatedAt = DateTime.Now;
+                kindergarten.UpdatedAt= DateTime.Now;
 
                 _context.Kindergartens.Update(kindergarten);
                 await _context.SaveChangesAsync();
