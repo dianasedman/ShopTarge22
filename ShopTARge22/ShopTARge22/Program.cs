@@ -13,6 +13,7 @@ builder.Services.AddScoped<ISpaceshipsServices, SpaceshipsServices>();
 builder.Services.AddScoped<IFileServices, FileServices>();
 builder.Services.AddScoped<IRealEstatesServices, RealEstateServices>();
 builder.Services.AddScoped<IKindergartenServices, KindergartenServices>();
+builder.Services.AddScoped<IWeatherForecastServices, WeatherForecastServices>();
 
 
 builder.Services.AddDbContext<ShopTARge22Context>(options =>
