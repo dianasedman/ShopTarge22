@@ -1,23 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using ShopTARge22.Core.Dto.WeatherDtos;
 using ShopTARge22.Core.ServiceInterface;
 using ShopTARge22.Models.Forecast;
+
 
 namespace ShopTARge22.Controllers
 {
     public class WeatherForecastsController : Controller
     {
-        private readonly IWeatherForecastServices weatherForecastServices;
+        private readonly IWeatherForecastServices _weatherForecastServices;
 
         public WeatherForecastsController
-            (IWeatherForecastServices _weatherForecastServices)
+            (IWeatherForecastServices weatherForecastServices)
         {
             _weatherForecastServices = weatherForecastServices;
         }
 
         [HttpGet]
-        public IActionResult SearchCity()
+        public IActionResult Index()
         {
-            SearchCityViewModel model = new();
+            //SearchCityViewModel model = new();
             return View();
         }
 
@@ -30,10 +32,25 @@ namespace ShopTARge22.Controllers
             }
             return View(model);
         }
+        [HttpGet]
         public IActionResult City(string city)
         {
+            OpenWeatherResultDto dto = new();
+            dto.City = city;
 
-            return View();
+            _weatherForecastServices.OpenWeatherResult(dto);
+            OpenWeatherViewModel vm = new();
+
+            vm.City = dto.City;
+            vm.Temp = dto.Temp;
+            vm.FeelsLike = dto.FeelsLike;
+            vm.Humidity = dto.Humidity;
+            vm.Pressure = dto.Pressure;
+            vm.WindSpeed = dto.WindSpeed;
+            vm.Description = dto.Description;
+
+
+            return View(vm);
         }
     }
 }

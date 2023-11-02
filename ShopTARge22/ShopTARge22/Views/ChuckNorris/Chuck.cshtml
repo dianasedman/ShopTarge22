@@ -1,0 +1,25 @@
+﻿@model ShopTARge22.Models.ChuckNorrisViewModel;
+
+
+<div class="container">
+    <h2>Jokes</h2>
+    </hr>
+    <dl class="row text-dark">
+        <div cite="form-group row">
+            <label asp-for="Categories" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model => model.Categories)
+        </div>
+        <div cite="form-group row">
+            <label asp-for="Value" class="col-sm-2 col-form-label"></label>
+            @Html.DisplayFor(model => model.Value)
+        </div>
+
+
+
+    </dl>
+        <form method="post">
+    <a asp-action="Chuck" asp-controller="ChuckNorris" class="btn btn-outline-danger">Refresh</a>
+    </form>
+
+   
+</div>
