@@ -10,7 +10,7 @@ namespace ShopTARge22.ApplicationServices.Services
     {
         public async Task<OpenWeatherResultDto> OpenWeatherResult(OpenWeatherResultDto dto)
         {
-            string idOpenWeather = "490b4d555048816169d62770a49021b7";
+            string idOpenWeather = "";
             string url = $"https://api.openweathermap.org/data/2.5/weather?q={dto.City}&units=metric&appid={idOpenWeather}"; 
 
             //mis peab tegema andmetega api call puhul
