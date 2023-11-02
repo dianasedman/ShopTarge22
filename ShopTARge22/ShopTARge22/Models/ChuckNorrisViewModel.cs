@@ -2,7 +2,7 @@
 {
     public class ChuckNorrisViewModel
     {
-        public string Categories { get; set; }
+        public List<object> Categories { get; set; }
         public DateTime Created_At { get; set; }
         public string Icon_Url { get; set; }
         public string Id { get; set; }

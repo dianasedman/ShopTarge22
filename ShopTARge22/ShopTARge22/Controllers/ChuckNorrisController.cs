@@ -38,7 +38,7 @@ namespace ShopTARge22.Controllers
             _chuckNorrisServices.OpenChuckNorrisResult(dto);
             ChuckNorrisViewModel vm = new();
 
-            //vm.Categories = dto.Categories;
+            vm.Categories = dto.Categories;
             vm.Value = dto.Value;
 
             return View(vm);

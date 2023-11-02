@@ -25,7 +25,7 @@ namespace ShopTARge22.ApplicationServices.Services
                 string json = client.DownloadString(url);
                 ChuckNorrisResponseDto chuckNorrisResult = new JavaScriptSerializer().Deserialize<ChuckNorrisResponseDto>(json);
 
-                //dto.Categories = chuckNorrisResult.Categories;
+                dto.Categories = chuckNorrisResult.Categories;
                 dto.Created_At = chuckNorrisResult.Created_at;
                 dto.Icon_Url = chuckNorrisResult.Icon_url;
                 dto.Updated_At = chuckNorrisResult.Updated_at;

@@ -8,7 +8,7 @@ namespace ShopTARge22.Core.Dto.ChuckNorrisDtos
 {
     public class OpenChuckNorrisResultDto
     {
-        public object Categories { get; set; }
+        public List<object> Categories { get; set; }
         public string Created_At { get; set;}
         public string Icon_Url { get; set; }
         public string Id { get; set; }

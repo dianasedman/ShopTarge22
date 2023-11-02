@@ -73,6 +73,16 @@ namespace ShopTARge22.KindergartenTest
             Assert.NotEqual(databaseguid, guid);
         }
 
+        [Fact]
+        public async Task ShouldNot_AddEmptySpaceship_WhenReturnResult()
+        {
+            KindergartenDto kindergarten = MockKindergartenData();
+
+            var result = await Svc<IKindergartenServices>().Create(kindergarten);
+
+            Assert.NotNull(result);
+        }
+
 
 
         private KindergartenDto MockKindergartenData()
