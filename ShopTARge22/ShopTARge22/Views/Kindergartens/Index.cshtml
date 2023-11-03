@@ -3,13 +3,12 @@
 @{
     int rowNumber = 1;
 }
-<div>
-    <a asp-action="create" asp-controller="Kindergartens" type="submit" class="btn btn-secondary">Create</a>
-</div>
 
-<div class="h1">
-    Kindergarten
-</div>
+
+<header class="major">
+    <h2>Kindergarten</h2>
+
+</header>
 <form method="post">
     <table class="table table-hover">
         <thead>
@@ -41,3 +40,7 @@
         </tbody>
     </table>
 </form>
+
+<div>
+    <a asp-action="create" asp-controller="Kindergartens" type="submit" class="button primary">Create</a>
+</div>

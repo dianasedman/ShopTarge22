@@ -2,13 +2,17 @@
 
 @if(Model.Id.HasValue)
 {
-    <h1>Update</h1>
+    <header class="major">
+    <h2>Update</h2>
+    </header>
 }
 else
 {
-    <h1>Create</h1>
+    <header class="major">
+        <h2>Create</h2>
+    </header>
 }
-
+<section>
 <div>
     <form method="post" enctype="multipart/form-data">
         <input asp-for="Id" type="hidden" />
@@ -74,29 +78,34 @@ else
             </div>
         </div>
         <hr/>
-        <div>
-        @foreach (var images in Model.Image)
-        {
-            <partial name="_Images" model="images" />
-            <input asp-action="removeImage" asp-controller="spaceships" asp-route-imageId="@images.ImageId" type="submit" class="btn btn-danger" value="Remove Image"/>
-        }
-        </div>
+        <ul class="statistics">
+            <li class="style1">
+                <div>
+                @foreach (var images in Model.Image)
+                {
+                    <partial name="_Images" model="images" />
+                    <input asp-action="removeImage" asp-controller="spaceships" asp-route-imageId="@images.ImageId" type="submit" class="btn btn-danger" value="Remove Image"/>
+                }
+                </div>
+            </li>
+        </ul>
+
         <hr/>
         @if(Model.Id.HasValue)
         {
-            <input asp-action="update" asp-controller="spaceships" type="submit" class="btn btn-primary" value="Create" />
+            <input asp-action="update" asp-controller="spaceships" type="submit" class="button primary" value="Create" />
 
         }
         else
         {
-            <input asp-action="create" asp-controller="spaceships" type="submit" class="btn btn-primary" value="Create" />
+            <input asp-action="create" asp-controller="spaceships" type="submit" class="button primary" value="Create" />
         }
 
-        <a asp-action="index" class="btn btn-primary">Index</a>
+        <a asp-action="index" class="button">Index</a>
     
     </form>
 </div>
-
+</section>
 @section Scripts
 {
     <script>

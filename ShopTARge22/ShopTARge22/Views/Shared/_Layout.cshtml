@@ -8,57 +8,73 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ShopTARge22.styles.css" asp-append-version="true" />
 </head>
+<div id="wrapper">
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+    
+    <header id="header" class="alt">
+            <a asp-area="" asp-controller="Home" asp-action="Index"><span class="logo"><img src="../../images/logo.svg" alt=""></span></a>
+            <h1>ShopTARge22</h1>
+    </header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ShopTARge22</a>
+               
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
+                    <nav id="nav" class>
+                    <ul>
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
-                        <li class="nav-item">
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
-                        <li class="nav-item">
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Spaceships" asp-action="Index">Spaceships</a>
                         </li>
-                        <li class="nav-item">
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="RealEstates" asp-action="Index">RealEstates</a>
                         </li>
-                        <li class="nav-item">
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="Kindergartens" asp-action="Index">Kindergarten</a> 
                         </li>
-                        <li class="nav-item">
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="WeatherForecasts" asp-action="Index">Weather Forecasts</a>
                         </li>
-                        <li class="nav-item">
+                        <li>
                             <a class="nav-link text-dark" asp-area="" asp-controller="ChuckNorris" asp-action="Chuck">Chuck Norris</a>
                         </li>
                     </ul>
+                    </nav>
                 </div>
             </div>
         </nav>
-    </header>
     <div class="container">
         <main role="main" class="pb-3">
-            @RenderBody()
+            <div id="main">
+                <section class="main">
+
+                @RenderBody()
+                </section>
+            </div>
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-muted" id="footer">
         <div class="container">
             &copy; 2023 - ShopTARge22 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+
+
+
 </body>
+</div>
 </html>

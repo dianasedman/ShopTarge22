@@ -2,11 +2,15 @@
 
 @if (Model.Id.HasValue)
 {
-    <h1>Update</h1>
+    <header class="major">
+        <h2>Update</h2>
+    </header>
 }
 else
 {
-    <h1>Create</h1>
+    <header class="major">
+        <h2>Create</h2>
+    </header>
 }
 
 <div>
@@ -74,26 +78,30 @@ else
         </div>
 
         <hr />
-        <div>
-            @foreach (var images in Model.Image)
-            {
-                <partial name="_Images" model="images" />
-                <input asp-action="removeimage" asp-controller="realestates" asp-route-imageid="@images.ImageId" type="submit" class="btn btn-outline-danger" value="remove image" />
+        <ul class="statistics">
+            <li class="style1">
+                <div>
+                    @foreach (var images in Model.Image)
+                    {
+                        <partial name="_Images" model="images" />
+                        <input asp-action="removeimage" asp-controller="realestates" asp-route-imageid="@images.ImageId" type="submit" class="btn btn-outline-danger" value="remove image" />
 
-            }
-        </div>
+                    }
+                </div>
+            </li>
+        </ul>
 
 
         @if (Model.Id.HasValue)
         {
-            <input asp-action="update" asp-controller="realestates" type="submit" class="btn btn-primary" value="Create" />
+            <input asp-action="update" asp-controller="realestates" type="submit" class="button primary" value="Create" />
         }
         else
         {
-            <input asp-action="create" asp-controller="realestates" type="submit" class="btn btn-primary" value="Create" />
+            <input asp-action="create" asp-controller="realestates" type="submit" class="button primary" value="Create" />
         }
 
-        <a asp-action="index" class="btn btn-primary">Index</a>
+        <a asp-action="index" class="button">Index</a>
 
     </form>
 </div>

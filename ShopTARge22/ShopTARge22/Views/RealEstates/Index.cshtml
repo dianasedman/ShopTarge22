@@ -4,14 +4,13 @@
     int rowNumber = 1;
 }
 
-<div>
-    <a asp-action="create" asp-controller="RealEstates" type="submit" class="btn btn-primary">Create</a>
-</div>
 
 
-<div class="h1">
-    RealEstates
-</div>
+
+<header class="major">
+    <h2>RealEstate</h2>
+
+</header>
 <form method="post">
     <table class="table table-hover">
         <thead>
@@ -45,3 +44,7 @@
         </tbody>
     </table>
 </form>
+
+<div>
+    <a asp-action="create" asp-controller="RealEstates" type="submit" class="button primary">Create</a>
+</div>

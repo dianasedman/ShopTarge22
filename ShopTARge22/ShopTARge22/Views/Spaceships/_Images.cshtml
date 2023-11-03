@@ -5,6 +5,8 @@
 
 <div class="form-group row col-sm-4 offset-2">
 @*     <div @Model.FilePath></div>
- *@  <div>@Model.ImageId</div>
-  <img class="card-img-top" src="@photoPaths" asp-append-version="true"/>
+    *@  <div>@Model.ImageId</div>
+    <span class="image" alt>
+  <img src="@photoPaths" asp-append-version="true"/>
+  </span>
 </div>

@@ -2,11 +2,15 @@
 
 @if(Model.Id.HasValue)
 {
-    <h1>Update</h1>
+    <header class="major">
+        <h2>Update</h2>
+    </header>
 }
 else
 {
-    <h1>Create</h1>
+    <header class="major">
+        <h2>Create</h2>
+    </header>
 }
 
 <div>
@@ -46,14 +50,14 @@ else
         <hr/>
         @if(Model.Id.HasValue)
         {
-            <input asp-action="update" asp-controller="kindergartens" type="submit" class="btn btn-success" value="Update" />
+            <input asp-action="update" asp-controller="kindergartens" type="submit" class="button primary" value="Update" />
         }
         else
         {
-            <input asp-action="create" asp-controller="kindergartens" type="submit" class="btn btn-secondary" value="Create" />
+            <input asp-action="create" asp-controller="kindergartens" type="submit" class="button primary" value="Create" />
         }
 
-        <a asp-action="index" class="btn btn-outline-info">Index</a>
+        <a asp-action="index" class="button">Index</a>
 
 
     </form>
