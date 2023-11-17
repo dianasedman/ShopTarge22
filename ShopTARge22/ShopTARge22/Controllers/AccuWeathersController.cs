@@ -51,6 +51,8 @@ namespace ShopTARge22.Controllers
             vm.RelativeHumidity = dto.RelativeHumidity;
             vm.Wind = dto.Wind;
             vm.Pressure = dto.Pressure;
+            vm.WeatherText = dto.WeatherText;
+
 
             return View(vm);
         }

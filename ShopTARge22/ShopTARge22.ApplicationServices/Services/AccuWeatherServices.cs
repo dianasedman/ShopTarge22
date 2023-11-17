@@ -11,28 +11,35 @@ using System.Net.Http.Json;
 public class AccuWeatherServices : IAccuWeatherServices
 {
     //public string Key = "127964";
+    string idAccuWeather = "";
+
 
     public async Task<AccuWeatherLocationResultDto> AccuWeatherGet(AccuWeatherLocationResultDto dto1)
     {
-        string idAccuWeather = "uevNYr8yufnBIByWyQTsZ6m2i5eMxfVz";
 
-        var url1 = $"http://dataservice.accuweather.com/locations/v1/cities/search?apikey={idAccuWeather}&q={dto1.City}";
-
-        using (HttpClient client = new HttpClient())
+        try
         {
-            string json = await client.GetStringAsync(url1);
-            List<AccuWeatherLocationRootDto> accuGet = new JavaScriptSerializer().Deserialize<List<AccuWeatherLocationRootDto>>(json);
 
-            dto1.Key = accuGet[0].Key;
-            dto1.LocalizedName = accuGet[0].LocalizedName;
+            var url1 = $"http://dataservice.accuweather.com/locations/v1/cities/search?apikey={idAccuWeather}&q={dto1.City}";
+
+            using (WebClient client = new WebClient())
+            {
+                string json = client.DownloadString(url1);
+                List<AccuWeatherLocationRootDto> accuGet = new JavaScriptSerializer().Deserialize<List<AccuWeatherLocationRootDto>>(json);
+
+                dto1.Key = accuGet[0].Key;
+                dto1.LocalizedName = accuGet[0].LocalizedName;
+            }
         }
-        return dto1;
+        catch (Exception ex) { Console.WriteLine("Try new city"); }
+            return dto1;
+       
     }
+
 
     public async Task<AccuWeatherResultDtos> AccuWeatherResult(AccuWeatherResultDtos dto, AccuWeatherLocationResultDto dto1)
     {
         await AccuWeatherGet(dto1);
-        string idAccuWeather = "uevNYr8yufnBIByWyQTsZ6m2i5eMxfVz";
 
         //var url1 = $"http://dataservice.accuweather.com/locations/v1/cities/search?apikey={idAccuWeather}&q={dto1.City}";
 
@@ -52,9 +59,9 @@ public class AccuWeatherServices : IAccuWeatherServices
         {
             string url = $"http://dataservice.accuweather.com/currentconditions/v1/{dto1.Key}?apikey={idAccuWeather}&details=true";
 
-            using (HttpClient client = new HttpClient())
+            using (WebClient client = new WebClient())
             {
-                string json = await client.GetStringAsync(url);
+                string json = client.DownloadString(url);
                 List<AccuWeatherRootDtos> accuResult = new JavaScriptSerializer().Deserialize<List<AccuWeatherRootDtos>>(json);
 
                 dto.Temperature = accuResult[0].Temperature.Metric.Value;
@@ -62,6 +69,7 @@ public class AccuWeatherServices : IAccuWeatherServices
                 dto.RelativeHumidity = accuResult[0].RelativeHumidity;
                 dto.Wind = accuResult[0].Wind.Speed.Metric.Value;
                 dto.Pressure = accuResult[0].Pressure.Metric.Value;
+                dto.WeatherText = accuResult[0].WeatherText;
             }
         }
 

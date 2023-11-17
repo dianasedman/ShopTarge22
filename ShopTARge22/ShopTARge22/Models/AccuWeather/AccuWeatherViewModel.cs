@@ -8,5 +8,7 @@
         public double RelativeHumidity { get; set; }
         public double Wind { get; set; }
         public double Pressure { get; set; }
+        public string WeatherText { get; set; }
+
     }
 }
