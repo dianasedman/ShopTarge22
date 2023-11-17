@@ -1,0 +1,41 @@
+﻿@model ShopTARge22.Models.AccuWeather.AccuWeatherViewModel;
+
+
+<div class="container">
+    <header class="major">
+        <h2>City</h2>
+    </header>
+    <h2>AccuWeather for the selected city</h2>
+    <ul class="features">
+        <h2>@Html.DisplayFor(model => model.City)</h2>
+
+        <li>
+            <label asp-for="Temperature" class="col-sm-2 col-form-label"></label>
+            <span>@Model.Temperature °C</span>
+        </li>
+        <li>
+            <label asp-for="RealFeelTemperature" class="col-sm-2 col-form-label"></label>
+            <span>@Model.RealFeelTemperature °C</span>
+        </li>
+        <li>
+            <label asp-for="RelativeHumidity" class="col-sm-2 col-form-label"></label>
+            <span>@Model.RelativeHumidity %</span>
+        </li>
+        <li>
+            <label asp-for="Wind" class="col-sm-2 col-form-label"></label>
+            <span>@Model.Wind km/h</span>
+        </li>
+        <li>
+            <label asp-for="Pressure" class="col-sm-2 col-form-label"></label>
+            <span>@Model.Pressure hPa</span>
+        </li>
+
+
+
+</div>
+
+<div class="container">
+    <form method="get">
+        <button asp-action="Index" asp-controller="AccuWeathers" class="button">Back</button>
+    </form>
+</div>
