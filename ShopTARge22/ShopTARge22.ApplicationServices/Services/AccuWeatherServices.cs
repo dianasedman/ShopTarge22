@@ -31,7 +31,7 @@ public class AccuWeatherServices : IAccuWeatherServices
                 dto1.LocalizedName = accuGet[0].LocalizedName;
             }
         }
-        catch (Exception ex) { Console.WriteLine("Try new city"); }
+        catch (Exception ex) { Console.WriteLine("City not available. Try another city"); }
             return dto1;
        
     }

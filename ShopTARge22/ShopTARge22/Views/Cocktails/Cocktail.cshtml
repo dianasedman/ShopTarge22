@@ -7,227 +7,610 @@
     </header>
     <h2>Cocktails</h2>
     <ul class="features">
-        <li>
-            <label asp-for="IdDrink" class="col-sm-2 col-form-label"></label>
-            <span>@Html.DisplayFor(model => model.IdDrink)</span>
-        </li>
+        @if (Model.IdDrink != null && !String.IsNullOrEmpty(Model.IdDrink))
+        {
+            <li>
+                <label asp-for="IdDrink" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.IdDrink)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.IdDrink)
+        }
 
-        <li>
-            <label asp-for="StrDrinkAlternate" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrDrinkAlternate)
-        </li>
+        @if (Model.StrDrinkAlternate != null && !String.IsNullOrEmpty(Model.StrDrinkAlternate))
+        {
+            <li>
+                <label asp-for="StrDrinkAlternate" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrDrinkAlternate)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrDrinkAlternate)
+        }
 
-        <li>
-            <label asp-for="StrTags" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrTags)
-        </li>
+        @if (Model.StrTags != null && !String.IsNullOrEmpty(Model.StrTags))
+        {
+            <li>
+                <label asp-for="StrTags" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrTags)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrTags)
+        }
 
-        <li>
-            <label asp-for="StrCategory" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrCategory)
-        </li>
+        @if (Model.StrVideo != null && !String.IsNullOrEmpty(Model.StrVideo))
+        {
+            <li>
+                <label asp-for="StrVideo" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrVideo)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrVideo)
+        }
 
-        <li>
-            <label asp-for="StrIBA" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIBA)
-        </li>
+        @if (Model.StrCategory != null && !String.IsNullOrEmpty(Model.StrCategory))
+        {
+            <li>
+                <label asp-for="StrCategory" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrCategory)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrCategory)
+        }
 
-        <li>
-            <label asp-for="StrAlcoholic" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrAlcoholic)
-        </li>
+        @if (Model.StrIBA != null && !String.IsNullOrEmpty(Model.StrIBA))
+        {
+            <li>
+                <label asp-for="StrIBA" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIBA)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIBA)
+        }
 
-        <li>
-            <label asp-for="StrGlass" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrGlass)
-        </li>
+        @if (Model.StrAlcoholic != null && !String.IsNullOrEmpty(Model.StrAlcoholic))
+        {
+            <li>
+                <label asp-for="StrAlcoholic" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrAlcoholic)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrAlcoholic)
+        }
 
-        <li>
-            <label asp-for="StrInstructions" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrInstructions)
-        </li>
+        @if (Model.StrGlass != null && !String.IsNullOrEmpty(Model.StrGlass))
+        {
+            <li>
+                <label asp-for="StrGlass" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrGlass)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrGlass)
+        }
 
-        <li>
-            <label asp-for="StrDrinkThumb" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrDrinkThumb)
-        </li>
+        @if (Model.StrInstructions != null && !String.IsNullOrEmpty(Model.StrInstructions))
+        {
+            <li>
+                <label asp-for="StrInstructions" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructions)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructions)
+        }
 
-        <li>
-            <label asp-for="StrIngredient1" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient1)
-        </li>
+        @if (Model.StrInstructionsES != null && !String.IsNullOrEmpty(Model.StrInstructionsES))
+        {
+            <li>
+                <label asp-for="StrInstructionsES" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructionsES)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructionsES)
+        }
 
-        <li>
-            <label asp-for="StrIngredient2" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient2)
-        </li>
+        @if (Model.StrInstructionsDE != null && !String.IsNullOrEmpty(Model.StrInstructionsDE))
+        {
+            <li>
+                <label asp-for="StrInstructionsDE" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructionsDE)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructionsDE)
+        }
 
-        <li>
-            <label asp-for="StrIngredient3" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient3)
-        </li>
+        @if (Model.StrInstructionsFR != null && !String.IsNullOrEmpty(Model.StrInstructionsFR))
+        {
+            <li>
+                <label asp-for="StrInstructionsFR" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructionsFR)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructionsFR)
+        }
 
-        <li>
-            <label asp-for="StrIngredient4" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient4)
-        </li>
+        @if (Model.StrInstructionsIT != null && !String.IsNullOrEmpty(Model.StrInstructionsIT))
+        {
+            <li>
+                <label asp-for="StrInstructionsIT" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructionsIT)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructionsIT)
+        }
 
-        <li>
-            <label asp-for="StrIngredient5" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient5)
-        </li>
+        @if (Model.StrInstructionsZHHANS != null && !String.IsNullOrEmpty(Model.StrInstructionsZHHANS))
+        {
+            <li>
+                <label asp-for="StrInstructionsZHHANS" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructionsZHHANS)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructionsZHHANS)
+        }
 
-        <li>
-            <label asp-for="StrIngredient6" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient6)
-        </li>
+        @if (Model.StrInstructionsZHHANT != null && !String.IsNullOrEmpty(Model.StrInstructionsZHHANT))
+        {
+            <li>
+                <label asp-for="StrInstructionsZHHANT" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrInstructionsZHHANT)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrInstructionsZHHANT)
+        }
 
-        <li>
-            <label asp-for="StrIngredient7" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient7)
-        </li>
+        @if (Model.StrDrinkThumb != null && !String.IsNullOrEmpty(Model.StrDrinkThumb))
+        {
+            <li>
+                <label asp-for="StrDrinkThumb" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrDrinkThumb)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrDrinkThumb)
+        }
 
+        @if (Model.StrIngredient1 != null && !String.IsNullOrEmpty(Model.StrIngredient1))
+        {
+            <li>
+                <label asp-for="StrIngredient1" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient1)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient2)
+        }
 
-        <li>
-            <label asp-for="StrIngredient8" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient8)
-        </li>
+        @if (Model.StrIngredient2 != null && !String.IsNullOrEmpty(Model.StrIngredient2))
+        {
+            <li>
+                <label asp-for="StrIngredient2" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient2)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient2)
+        }
 
-        <li>
-            <label asp-for="StrIngredient9" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient9)
-        </li>
+        @if (Model.StrIngredient3 != null && !String.IsNullOrEmpty(Model.StrIngredient3))
+        {
+            <li>
+                <label asp-for="StrIngredient3" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient3)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient3)
+        }
 
-        <li>
-            <label asp-for="StrIngredient10" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient10)
-        </li>
+        @if (Model.StrIngredient4 != null && !String.IsNullOrEmpty(Model.StrIngredient4))
+        {
+            <li>
+                <label asp-for="StrIngredient4" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient4)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient4)
+        }
 
-        <li>
-            <label asp-for="StrIngredient11" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient11)
-        </li>
+        @if (Model.StrIngredient5 != null && !String.IsNullOrEmpty(Model.StrIngredient5))
+        {
+            <li>
+                <label asp-for="StrIngredient5" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient5)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient5)
+        }
 
-        <li>
-            <label asp-for="StrIngredient12" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient12)
-        </li>
+        @if (Model.StrIngredient6 != null && !String.IsNullOrEmpty(Model.StrIngredient6))
+        {
+            <li>
+                <label asp-for="StrIngredient6" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient6)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient6)
+        }
 
-        <li>
-            <label asp-for="StrIngredient13" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient13)
-        </li>
+        @if (Model.StrIngredient7 != null && !String.IsNullOrEmpty(Model.StrIngredient7))
+        {
+            <li>
+                <label asp-for="StrIngredient7" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient7)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient7)
+        }
 
-        <li>
-            <label asp-for="StrIngredient14" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient14)
-        </li>
+        @if (Model.StrIngredient8 != null && !String.IsNullOrEmpty(Model.StrIngredient8))
+        {
+            <li>
+                <label asp-for="StrIngredient8" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient8)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient8)
+        }
 
-        <li>
-            <label asp-for="StrIngredient15" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrIngredient15)
-        </li>
-        
-        <li>
-            <label asp-for="StrMeasure1" class="col-sm-2 col-form-label"></label>
-            @Html.DisplayFor(model => model.StrMeasure1)
+        @if (Model.StrIngredient9 != null && !String.IsNullOrEmpty(Model.StrIngredient9))
+        {
+            <li>
+                <label asp-for="StrIngredient9" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient9)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient9)
+        }
 
-        <li>
-            <label asp-for="StrMeasure2" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrIngredient10 != null && !String.IsNullOrEmpty(Model.StrIngredient10))
+        {
+            <li>
+                <label asp-for="StrIngredient10" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient10)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient10)
+        }
+
+        @if (Model.StrIngredient11 != null && !String.IsNullOrEmpty(Model.StrIngredient11))
+        {
+            <li>
+                <label asp-for="StrIngredient11" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient11)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient11)
+        }
+
+        @if (Model.StrIngredient12 != null && !String.IsNullOrEmpty(Model.StrIngredient12))
+        {
+            <li>
+                <label asp-for="StrIngredient12" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient12)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient12)
+        }
+
+        @if (Model.StrIngredient13 != null && !String.IsNullOrEmpty(Model.StrIngredient13))
+        {
+            <li>
+                <label asp-for="StrIngredient13" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient13)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient13)
+        }
+
+        @if (Model.StrIngredient14 != null && !String.IsNullOrEmpty(Model.StrIngredient14))
+        {
+            <li>
+                <label asp-for="StrIngredient14" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient14)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient14)
+        }
+
+        @if (Model.StrIngredient15 != null && !String.IsNullOrEmpty(Model.StrIngredient15))
+        {
+            <li>
+                <label asp-for="StrIngredient15" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrIngredient15)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrIngredient15)
+        }
+
+        @if (Model.StrMeasure1 != null && !String.IsNullOrEmpty(Model.StrMeasure1))
+        {
+            <li>
+                <label asp-for="StrMeasure1" class="col-sm-2 col-form-label"></label>
+                @Html.DisplayFor(model => model.StrMeasure1)
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure1)
+        }
+
+        @if (Model.StrMeasure2 != null && !String.IsNullOrEmpty(Model.StrMeasure2))
+        {
+            <li>
+                <label asp-for="StrMeasure2" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure2)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure2)
+        }
 
-        <li>
-            <label asp-for="StrMeasure3" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure3 != null && !String.IsNullOrEmpty(Model.StrMeasure3))
+        {
+            <li>
+                <label asp-for="StrMeasure3" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure3)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure3)
+        }
 
-        <li>
-            <label asp-for="StrMeasure4" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure4 != null && !String.IsNullOrEmpty(Model.StrMeasure4))
+        {
+            <li>
+                <label asp-for="StrMeasure4" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure4)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure4)
+        }
 
-        <li>
-            <label asp-for="StrMeasure5" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure5 != null && !String.IsNullOrEmpty(Model.StrMeasure5))
+        {
+            <li>
+                <label asp-for="StrMeasure5" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure5)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure5)
+        }
 
-        <li>
-            <label asp-for="StrMeasure6" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure6 != null && !String.IsNullOrEmpty(Model.StrMeasure6))
+        {
+            <li>
+                <label asp-for="StrMeasure6" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure6)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure6)
+        }
 
-                <li>
-            <label asp-for="StrMeasure7" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure7 != null && !String.IsNullOrEmpty(Model.StrMeasure7))
+        {
+            <li>
+                <label asp-for="StrMeasure7" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure7)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure7)
+        }
 
-        <li>
-            <label asp-for="StrMeasure8" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure8 != null && !String.IsNullOrEmpty(Model.StrMeasure8))
+        {
+            <li>
+                <label asp-for="StrMeasure8" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure8)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure8)
+        }
 
-        <li>
-            <label asp-for="StrMeasure9" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure9 != null && !String.IsNullOrEmpty(Model.StrMeasure9))
+        {
+            <li>
+                <label asp-for="StrMeasure9" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure9)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure9)
+        }
 
-        <li>
-            <label asp-for="StrMeasure10" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure10 != null && !String.IsNullOrEmpty(Model.StrMeasure10))
+        {
+            <li>
+                <label asp-for="StrMeasure10" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure10)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure10)
+        }
 
-        <li>
-            <label asp-for="StrMeasure11" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure11 != null && !String.IsNullOrEmpty(Model.StrMeasure11))
+        {
+            <li>
+                <label asp-for="StrMeasure11" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure11)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure11)
+        }
 
-        <li>
-            <label asp-for="StrMeasure12" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure12 != null && !String.IsNullOrEmpty(Model.StrMeasure12))
+        {
+            <li>
+                <label asp-for="StrMeasure12" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure12)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure12)
+        }
 
-        <li>
-            <label asp-for="StrMeasure13" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure13 != null && !String.IsNullOrEmpty(Model.StrMeasure13))
+        {
+            <li>
+                <label asp-for="StrMeasure13" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure13)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure13)
+        }
 
-        <li>
-            <label asp-for="StrMeasure14" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure14 != null && !String.IsNullOrEmpty(Model.StrMeasure14))
+        {
+            <li>
+                <label asp-for="StrMeasure14" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure14)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure14)
+        }
 
-        <li>
-            <label asp-for="StrMeasure15" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrMeasure15 != null && !String.IsNullOrEmpty(Model.StrMeasure15))
+        {
+            <li>
+                <label asp-for="StrMeasure15" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrMeasure15)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrMeasure15)
+        }
 
-        <li>
-            <label asp-for="StrImageSource" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrImageSource != null && !String.IsNullOrEmpty(Model.StrImageSource))
+        {
+            <li>
+                <label asp-for="StrImageSource" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrImageSource)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrImageSource)
+        }
 
-        <li>
-            <label asp-for="StrImageAttribution" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrImageAttribution != null && !String.IsNullOrEmpty(Model.StrImageAttribution))
+        {
+            <li>
+                <label asp-for="StrImageAttribution" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrImageAttribution)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrImageAttribution)
+        }
 
-        <li>
-            <label asp-for="StrCreativeCommonsConfirmed" class="col-sm-2 col-form-label"></label>
+        @if (Model.StrCreativeCommonsConfirmed != null && !String.IsNullOrEmpty(Model.StrCreativeCommonsConfirmed))
+        {
+            <li>
+                <label asp-for="StrCreativeCommonsConfirmed" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.StrCreativeCommonsConfirmed)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.StrCreativeCommonsConfirmed)
+        }
 
-        <li>
-            <label asp-for="DateModified" class="col-sm-2 col-form-label"></label>
+        @if (Model.DateModified != null && !String.IsNullOrEmpty(Model.DateModified))
+        {
+            <li>
+                <label asp-for="DateModified" class="col-sm-2 col-form-label"></label>
                 @Html.DisplayFor(model => model.DateModified)
-        </li>
+            </li>
+        }
+        else
+        {
+            @Html.HiddenFor(model => model.DateModified)
+        }
         </dl>
-        @*     <a asp-action="Index" asp-controller="WeatherForecasts" class="btn btn-outline-danger">Back</a>
-        *@
 </div>
 
 <div class="container">
     <form method="get">
-        <button asp-action="Index" asp-controller="WeatherForecasts" class="button">Back</button>
+        <button asp-controller="cocktails" asp-action="Index" class="btn btn-success">Index</button>
     </form>
 </div>
