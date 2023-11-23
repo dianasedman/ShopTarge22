@@ -1,0 +1,47 @@
+﻿@model ShopTARge22.Models.EmailViewModel;
+
+<header class="major">
+    <h2>Write an email</h2>
+</header>
+
+<div class="container">
+    <form method="post" >
+        <div class="container">
+            <div class="form-group col-md-offset-3 col-md-5">
+                <label asp-for="To"></label>
+                <input asp-for="To" class="form-control" />
+                <span asp-validation-for="To" class="text-danger"></span>
+            </div>
+        </div>
+        <p>
+
+        </p>
+        <div class="container">
+            <div class="form-group col-md-offset-3 col-md-5">
+                <label asp-for="Subject"></label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+        </div>
+        <p>
+
+        </p>
+        <div class="container">
+            <div class="form-group col-md-offset-3 col-md-5">
+                <label asp-for="Body" required></label>
+                <input asp-for="Body" class="form-control" />
+                <span asp-validation-for="Body" class="text-danger"></span>
+            </div>
+        </div>
+        <p>
+
+        </p>
+        <div>
+            <div class="container">
+                <div class="form-group col-md-offset-3 col-md-5">
+                    <button asp-action="SendEmail" asp-controller="emails" type="submit" class=" button">Send Email</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
