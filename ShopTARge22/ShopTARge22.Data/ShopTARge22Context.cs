@@ -1,10 +1,11 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using ShopTARge22.Core.Domain;
 
 
 namespace ShopTARge22.Data
 {
-    public class ShopTARge22Context : DbContext
+    public class ShopTARge22Context : IdentityDbContext
     {
         public ShopTARge22Context(DbContextOptions<ShopTARge22Context> options)
             : base(options) { }

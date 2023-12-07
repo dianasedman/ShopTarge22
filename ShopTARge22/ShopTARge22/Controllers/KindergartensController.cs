@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using ShopTARge22.Core.Dto;
 using ShopTARge22.Core.ServiceInterface;
 using ShopTARge22.Data;

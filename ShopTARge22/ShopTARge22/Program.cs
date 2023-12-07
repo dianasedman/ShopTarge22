@@ -4,6 +4,8 @@ using ShopTARge22.Core.ServiceInterface;
 using ShopTARge22.ApplicationServices.Services;
 using Microsoft.Extensions.FileProviders;
 using ShopTARge22.Hubs;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -26,6 +28,10 @@ builder.Services.AddSignalR();
 
 builder.Services.AddDbContext<ShopTARge22Context>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+	.AddEntityFrameworkStores<ShopTARge22Context>();
 
 
 var app = builder.Build();
@@ -52,6 +58,11 @@ app.UseStaticFiles(new StaticFileOptions
 app.UseRouting();
 
 app.UseAuthorization();
+
+
+app.UseAuthentication();;
+
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",
